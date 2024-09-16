@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talha Shafik - Data Science Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --background-color: #f8f9fa;
+            --card-background: #ffffff;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            font-weight: 600;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            font-weight: 300;
+        }
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        section {
+            padding: 4rem 0; /* Reduced from 6rem to 4rem */
+        }
+        h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem; /* Reduced from 3rem to 2rem */
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .project {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .project h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .project p {
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+        .project-link {
+            display: inline-block;
+            width: 100%;
+            padding: 0.75rem 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            font-weight: 600;
+        }
+        .project-link:hover {
+            background-color: var(--secondary-color);
+        }
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .experience {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .experience:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .experience h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .experience-icon {
+            flex: 0 0 100px;
+            height: 100px;
+            margin-right: 2rem;
+            background-color: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .experience-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .experience-details {
+            flex: 1;
+        }
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .experience {
+                flex-direction: column;
+                text-align: center;
+            }
+            .experience-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+        .icon-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 2rem; /* Reduced space between icons and title */
+            margin-bottom: 1rem; /* Reduced space between icons and projects section */
+        }
+        .icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .icon:hover {
+            transform: scale(1.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Talha Shafik</h1>
+            <p>Data Scientist | Data Analyst | Business Intelligence</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm a passionate data scientist with expertise in machine learning, statistical analysis, and data visualization. I love solving complex problems and deriving insights from data to drive informed decision-making.</p>
+            
+            <div class="icon-container">
+                <div class="icon">
+                    <img src="/Users/talha/Downloads/Personal Project/bbal.png" alt="Python Logo" />
+                </div>
+                <div class="icon">
+                    <img src="/Users/talha/Downloads/Personal Project/data.jpeg" alt="R Logo" />
+                </div>
+                <div class="icon">
+                    <img src="/Users/talha/Downloads/Personal Project/stats.png" alt="SQL Logo" />
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <h3>Hair Loss Predictive Analytics</h3>
+                    <p>Developed a machine learning model to predict the highest component contributing to an individual's hair loss, providing personalized insights for treatment strategies.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Real Estate Price Prediction</h3>
+                    <p>Analyzed local real estate market data and created a machine learning model to suggest optimal prices for new house listings, improving market competitiveness.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Mice Decision Analysis</h3>
+                    <p>Developed analytical models predicting mouse trial outcomes from neural activity, correlating visual cortex signals to decision-making behavior to enhance neuroscientific understanding.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Salary Data Analysis</h3>
+                    <p>Web scraped and analyzed data from Salary.com to uncover insights on various industries and job roles, providing valuable information for career decision-making.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="experiences">
+            <h2>Experiences</h2>
+            <div class="experience">
+                <div class="experience-icon">
+                    <img src="/Users/talha/Downloads/Personal Project/nba-logo.jpg" alt="NBA Logo">
+                </div>
+                <div class="experience-details">
+                    <h3>Strategy and Analyst Intern @ NBA</h3>
+                    <p>Developed predictive models for basketball operations and the sports betting integrity team, contributing to data-driven decision-making and maintaining the integrity of NBA games. </p>
+                </div>
+            </div>
+            <div class="experience">
+                <div class="experience-icon">
+                    <img src="/Users/talha/Downloads/Personal Project/kings.jpg" alt="Sacramento Kings Logo">
+                </div>
+                <div class="experience-details">
+                    <h3>Business Intelligence Analyst Intern @ Sacramento Kings</h3>
+                    <p>Contributed to the analysis of the affordable ticketing program, aligning it with the overall sales strategy. Extracted data insights and developed predictive models for season ticket renewals, enhancing membership retention strategies. </p>
+                </div>
+            </div>
+            <div class="experience">
+                <div class="experience-icon">
+                    <img src="/Users/talha/Downloads/Personal Project/49ers.jpg" alt="San Francisco 49ers Logo">
+                </div>
+                <div class="experience-details">
+                    <h3>Strategy and Operations Intern @ San Francisco 49ers</h3>
+                    <p>Utilized fan engagement data to enhance game-day experiences, driving an 18% increase in food and beverage revenue through strategic insights and operational improvements.</p>
+                </div>
+            </div>
+            <div class="experience">
+                <div class="experience-icon">
+                    <img src="/Users/talha/Downloads/Personal Project/launchpad.jpeg" alt="Launchpad Logo">
+                </div>
+                <div class="experience-details">
+                    <h3>Project Management Intern @ Launchpad</h3>
+                    <p>Led cross-functional teams to create innovative campaigns to pass bills for more affordable and sustainable housing in the city of Davis.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Talha Shafik. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
